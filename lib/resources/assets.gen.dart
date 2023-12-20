@@ -14,37 +14,70 @@ import 'package:flutter/services.dart';
 class $AssetsIconsGen {
   const $AssetsIconsGen();
 
+  /// File path: assets/icons/ic_Vector.svg
+  SvgGenImage get icVector => const SvgGenImage('assets/icons/ic_Vector.svg');
+
+  /// File path: assets/icons/ic_clock.svg
+  SvgGenImage get icClock => const SvgGenImage('assets/icons/ic_clock.svg');
+
   /// File path: assets/icons/ic_crown.svg
   SvgGenImage get icCrown => const SvgGenImage('assets/icons/ic_crown.svg');
 
+  /// File path: assets/icons/ic_crown1.svg
+  SvgGenImage get icCrown1 => const SvgGenImage('assets/icons/ic_crown1.svg');
+
+  /// File path: assets/icons/ic_like.svg
+  SvgGenImage get icLike => const SvgGenImage('assets/icons/ic_like.svg');
+
+  /// File path: assets/icons/ic_note-text.svg
+  SvgGenImage get icNoteText =>
+      const SvgGenImage('assets/icons/ic_note-text.svg');
+
   /// File path: assets/icons/ic_power.svg
   SvgGenImage get icPower => const SvgGenImage('assets/icons/ic_power.svg');
-  SvgGenImage get vector => const SvgGenImage('assets/icons/Vector.svg');
-  SvgGenImage get notes => const SvgGenImage('assets/icons/note-text.svg');
-  SvgGenImage get likes => const SvgGenImage('assets/icons/like.svg');
-  SvgGenImage get clock => const SvgGenImage('assets/icons/clock (1).svg');
-  SvgGenImage get security => const SvgGenImage('assets/icons/security-safe.svg');
-   SvgGenImage get verify => const SvgGenImage('assets/icons/verify.svg');
+
+  /// File path: assets/icons/ic_securitysafe.svg
+  SvgGenImage get icSecuritysafe =>
+      const SvgGenImage('assets/icons/ic_securitysafe.svg');
+
+  /// File path: assets/icons/ic_verify.svg
+  SvgGenImage get icVerify => const SvgGenImage('assets/icons/ic_verify.svg');
 
   /// List of all assets
-  List<SvgGenImage> get values => [icCrown, icPower];
-
-  get icPlaneBlue => null;
-
-  get icStar => null;
+  List<SvgGenImage> get values => [
+        icVector,
+        icClock,
+        icCrown,
+        icCrown1,
+        icLike,
+        icNoteText,
+        icPower,
+        icSecuritysafe,
+        icVerify
+      ];
 }
 
 class $AssetsImagesGen {
   const $AssetsImagesGen();
 
-  /// File path: assets/images/image_background.png
-  AssetGenImage get imageBackground =>
-      const AssetGenImage('assets/images/Layer 1.png');
-  AssetGenImage get imageRatebg =>
-      const AssetGenImage('assets/images/image_ratebg.png');
+  /// File path: assets/images/Frame.png
+  AssetGenImage get frame => const AssetGenImage('assets/images/Frame.png');
+
+  /// File path: assets/images/Group17.png
+  AssetGenImage get group17 => const AssetGenImage('assets/images/Group17.png');
+
+  /// File path: assets/images/Layer 1.png
+  AssetGenImage get layer1 => const AssetGenImage('assets/images/Layer 1.png');
+
+  /// File path: assets/images/Subtract.png
+  AssetGenImage get subtract =>
+      const AssetGenImage('assets/images/Subtract.png');
+
+  /// File path: assets/images/crown.png
+  AssetGenImage get crown => const AssetGenImage('assets/images/crown.png');
 
   /// List of all assets
-  List<AssetGenImage> get values => [imageBackground];
+  List<AssetGenImage> get values => [frame, group17, layer1, subtract, crown];
 }
 
 class Assets {

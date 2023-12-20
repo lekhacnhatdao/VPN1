@@ -32,45 +32,45 @@ class _SettingPageState extends State<SettingPage> {
       body: Column(
         children: [
           // ignore: lines_longer_than_80_chars
-          SettingListTile(title: 'Go VIP', ispre: true ,svgWidget: Assets.icons.icPower.svg(), onPressed: (){
-            // ignore: lines_longer_than_80_chars
-            Navigator.push(context, MaterialPageRoute(builder: (_)=>  const PremiumPage()));
-          },),
+          // SettingListTile(title: 'Go VIP', ispre: true ,svgWidget: Assets.icons.icPower.svg(), onPressed: (){
+          //   // ignore: lines_longer_than_80_chars
+          //   Navigator.push(context, MaterialPageRoute(builder: (_)=>  const PremiumPage()));
+          // },),
+          // // ignore: lines_longer_than_80_chars
+          // SettingListTile(title: 'Recent'  ,svgWidget: Assets.icons.clock.svg(), onPressed: (){
+          //   // ignore: lines_longer_than_80_chars
+          //   Navigator.push(context, MaterialPageRoute(builder: (_)=>  const PremiumPage()));
+          // },),
+          // // ignore: lines_longer_than_80_chars
+          // SettingListTile(title: 'Share with friends' ,svgWidget: Assets.icons.vector.svg(), onPressed: (){
+          //   // ignore: lines_longer_than_80_chars
+          //   Navigator.push(context, MaterialPageRoute(builder: (_)=>  const PremiumPage()));
+          // },),
+          // // ignore: lines_longer_than_80_chars
+          // SettingListTile(title: 'Feedback' ,svgWidget: Assets.icons.likes.svg(), onPressed: () {
+          //           // _launchURL(Config.storeAppUrl);
+          //           // showDialog(
+          //           //   context: context,
+          //           //   builder: (BuildContext context) {
+          //           //     return const RatingDialog();
+          //           //   },
+          //           // );
+          //         },),
           // ignore: lines_longer_than_80_chars
-          SettingListTile(title: 'Recent'  ,svgWidget: Assets.icons.clock.svg(), onPressed: (){
-            // ignore: lines_longer_than_80_chars
-            Navigator.push(context, MaterialPageRoute(builder: (_)=>  const PremiumPage()));
-          },),
-          // ignore: lines_longer_than_80_chars
-          SettingListTile(title: 'Share with friends' ,svgWidget: Assets.icons.vector.svg(), onPressed: (){
-            // ignore: lines_longer_than_80_chars
-            Navigator.push(context, MaterialPageRoute(builder: (_)=>  const PremiumPage()));
-          },),
-          // ignore: lines_longer_than_80_chars
-          SettingListTile(title: 'Feedback' ,svgWidget: Assets.icons.likes.svg(), onPressed: () {
-                    // _launchURL(Config.storeAppUrl);
-                    // showDialog(
-                    //   context: context,
-                    //   builder: (BuildContext context) {
-                    //     return const RatingDialog();
-                    //   },
-                    // );
-                  },),
-          // ignore: lines_longer_than_80_chars
-          SettingListTile(title: 'Terms of Use' ,svgWidget: Assets.icons.notes.svg(), onPressed: (){
-            // ignore: lines_longer_than_80_chars
-            Navigator.push(context, MaterialPageRoute(builder: (_)=>  const TermsPage()));
-          },),
-          // ignore: lines_longer_than_80_chars
-          SettingListTile(title: 'Privacy Policy' ,svgWidget: Assets.icons.security.svg(), onPressed: (){
-            // ignore: lines_longer_than_80_chars
-            Navigator.push(context, MaterialPageRoute(builder: (_)=>  const PrivacyPage ()));
-          },),
-           // ignore: lines_longer_than_80_chars
-           SettingListTile(title: 'Version' , islast: true,svgWidget: Assets.icons.verify.svg(), onPressed: (){
-            // ignore: lines_longer_than_80_chars
-            Navigator.push(context, MaterialPageRoute(builder: (_)=>  const PremiumPage()));
-          },),
+          // SettingListTile(title: 'Terms of Use' ,svgWidget: Assets.icons.notes.svg(), onPressed: (){
+          //   // ignore: lines_longer_than_80_chars
+          //   Navigator.push(context, MaterialPageRoute(builder: (_)=>  const TermsPage()));
+          // },),
+          // // ignore: lines_longer_than_80_chars
+          // SettingListTile(title: 'Privacy Policy' ,svgWidget: Assets.icons.security.svg(), onPressed: (){
+          //   // ignore: lines_longer_than_80_chars
+          //   Navigator.push(context, MaterialPageRoute(builder: (_)=>  const PrivacyPage ()));
+          // },),
+          //  // ignore: lines_longer_than_80_chars
+          //  SettingListTile(title: 'Version' , islast: true,svgWidget: Assets.icons.verify.svg(), onPressed: (){
+          //   // ignore: lines_longer_than_80_chars
+          //   Navigator.push(context, MaterialPageRoute(builder: (_)=>  const PremiumPage()));
+          // },),
 
         ],
        
