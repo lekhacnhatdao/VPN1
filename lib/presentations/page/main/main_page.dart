@@ -9,6 +9,7 @@ import 'package:openvpn/presentations/page/main/home_left_menu_page.dart';
 import 'package:openvpn/presentations/page/main/server_page/server_page.dart';
 import 'package:openvpn/presentations/page/main/settingpage.dart';
 import 'package:openvpn/presentations/page/main/vpn_page.dart';
+import 'package:openvpn/presentations/widget/impl/backround.dart';
 import 'package:openvpn/presentations/widget/impl/custombar.dart';
 import 'package:openvpn/presentations/widget/index.dart';
 import 'package:openvpn/resources/assets.gen.dart';
@@ -102,16 +103,7 @@ class _MainPageState extends State<MainPage>
               // )
             ],
           ),
-          body: Container(
-            width: double.infinity,
-            height: double.infinity,
-            decoration: const BoxDecoration(
-                color: Color.fromARGB(195, 0, 0, 0),
-                image: DecorationImage(
-                  image: AssetImage('assets/images/Layer 1.png'),
-                  fit: BoxFit.fill,
-                )),
-            child: Column(
+          body: Custombackground(widget: Column(
               children: [
                 SizedBox(height: 10,),
                 Expanded(
@@ -136,8 +128,8 @@ class _MainPageState extends State<MainPage>
                   onSelect: (index ) => controller.animateTo(index),
                 )
               ],
-            ),
+            ),) 
           ),
-        ));
+        );
   }
 }

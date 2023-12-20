@@ -19,11 +19,19 @@ class $AssetsIconsGen {
 
   /// File path: assets/icons/ic_power.svg
   SvgGenImage get icPower => const SvgGenImage('assets/icons/ic_power.svg');
+  SvgGenImage get vector => const SvgGenImage('assets/icons/Vector.svg');
+  SvgGenImage get notes => const SvgGenImage('assets/icons/note-text.svg');
+  SvgGenImage get likes => const SvgGenImage('assets/icons/like.svg');
+  SvgGenImage get clock => const SvgGenImage('assets/icons/clock (1).svg');
+  SvgGenImage get security => const SvgGenImage('assets/icons/security-safe.svg');
+   SvgGenImage get verify => const SvgGenImage('assets/icons/verify.svg');
 
   /// List of all assets
   List<SvgGenImage> get values => [icCrown, icPower];
 
   get icPlaneBlue => null;
+
+  get icStar => null;
 }
 
 class $AssetsImagesGen {
@@ -32,6 +40,8 @@ class $AssetsImagesGen {
   /// File path: assets/images/image_background.png
   AssetGenImage get imageBackground =>
       const AssetGenImage('assets/images/Layer 1.png');
+  AssetGenImage get imageRatebg =>
+      const AssetGenImage('assets/images/image_ratebg.png');
 
   /// List of all assets
   List<AssetGenImage> get values => [imageBackground];

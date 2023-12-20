@@ -24,7 +24,7 @@ class _PretimunServerState extends State<PretimunServer> {
         return Column(
           children: [
             Expanded(child: ListView.builder( 
-              itemCount: state.servers.length ,itemBuilder:(context, index) {
+              itemCount: 2 ,itemBuilder:(context, index) {
            
                
          
@@ -33,6 +33,8 @@ class _PretimunServerState extends State<PretimunServer> {
             final isSelected = state.currentServer?.id == server1.id;         
                return buildPretimun(server1 ,isSelected, state.isVip );
                  } 
+               final  isSelected2 = state.currentServer?.id == state.servers[15].id;
+                 return buildPretimun(state.servers[15] ,isSelected2, state.isVip );
              
               ;} ,))
           ],
