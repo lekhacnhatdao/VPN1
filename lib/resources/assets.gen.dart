@@ -68,6 +68,7 @@ class $AssetsImagesGen {
 
   /// File path: assets/images/Group17.png
   AssetGenImage get group17 => const AssetGenImage('assets/images/Group17.png');
+  AssetGenImage get group862 => const AssetGenImage('assets/images/Group862.png');
 
   /// File path: assets/images/Layer 1.png
   AssetGenImage get layer1 => const AssetGenImage('assets/images/Layer 1.png');

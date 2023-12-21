@@ -20,6 +20,7 @@ class AppLabelText extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Row(
+    mainAxisAlignment: MainAxisAlignment.center,
       children: [
         Icon(icon, color: coloricon,),
         SizedBox(width: 8,),
@@ -28,6 +29,7 @@ class AppLabelText extends StatelessWidget {
           style: Theme.of(context).textTheme.labelMedium?.copyWith(
                 fontSize: size,
                 color: color,
+                
               ),
         ),
       ],

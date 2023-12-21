@@ -13,8 +13,8 @@ import 'package:openvpn/resources/strings.dart';
 import 'package:openvpn/utils/config.dart';
 
 class VpnPage extends StatelessWidget {
-  const VpnPage({super.key, required this.i});
-  final int i ;
+  const VpnPage({super.key, });
+
 
   @override
   Widget build(BuildContext context) {
@@ -24,6 +24,7 @@ class VpnPage extends StatelessWidget {
           children: [
            Column(
                   children: [
+                     SizedBox(height: 10,),
                     Container(
                       margin: EdgeInsets.symmetric(horizontal: 10),
                       height: 377,

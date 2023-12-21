@@ -12,6 +12,7 @@ class Strings {
   static const String superFastServer = '• Super fast server, easy access';
   static const String customerSupport = '• 24/7 customer support';
   static const String getPremiumNow = '3 days trial & Subscribe now';
+  
 
   //ShopPage
   static const String shop = 'Shop';

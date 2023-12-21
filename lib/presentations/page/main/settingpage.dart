@@ -50,9 +50,10 @@ class _SettingPageState extends State<SettingPage> {
           },),
           // ignore: lines_longer_than_80_chars
           SettingListTile(title: 'Feedback' ,svgWidget: Assets.icons.icLike.svg(), onPressed: () {
-             showDialog(
+             showBottomSheet(
                       context: context,
                       builder: (BuildContext context) {
+                        
                         return const RatingDialog();
                       },
                     );
@@ -146,6 +147,7 @@ class SettingListTile extends StatelessWidget {
       ),
     );
   }
+  
 }
 // class RatingDialog extends StatefulWidget {
 //   const RatingDialog({super.key});

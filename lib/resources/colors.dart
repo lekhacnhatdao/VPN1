@@ -42,6 +42,7 @@ class AppColors {
 
   static const Color upload = Color(0xFFEA9010);
   static const Color download = Color(0xFF2BA84A);
+  static const Color orange = Color(0xffFFA555);
 
   static const Color scaffoldBackgroundColor = Color(0xFFB9FAF5);
   static const Color itemBackgroundColor = Color(0x1F000000);

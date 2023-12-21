@@ -45,6 +45,7 @@ class AppButtons extends StatelessWidget {
         onPressed: onPressed,
         style: ElevatedButton.styleFrom(
           backgroundColor: backgroundColor,
+         
         ),
         child: AppLabelText(
           text: text,

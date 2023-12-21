@@ -66,7 +66,7 @@ class _AllServerState extends State<AllServer> {
             : () {
                 _handleItemTapped(server, isVip);
           
-              VpnPage(i: server.id,);  
+              
               },
         child: Container(
           height: 60,

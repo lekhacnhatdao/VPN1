@@ -27,90 +27,85 @@ class _RatingDialogState extends State<RatingDialog> {
 
   @override
   Widget build(BuildContext context) {
-    return AlertDialog(
-      backgroundColor: AppColors.scaffoldBackgroundColor,
-      content: Column(
-        mainAxisSize: MainAxisSize.min,
-        crossAxisAlignment: CrossAxisAlignment.center,
-        children: [
-          ClipRRect(
-            borderRadius: const BorderRadius.only(
-              topLeft: Radius.circular(20),
-              topRight: Radius.circular(20),
-            ),
-            child: Image.asset(
-              Assets.images.frame.path,
-            ),
-          ),
-          const SizedBox(
-            height: 10,
-          ),
-          const AppBodyText(
-            text: 'Do you like ${Strings.Unlimited} ?',
-            textAlign: TextAlign.center,
-            size: 20,
-            color: AppColors.colorBlue,
-          ),
-          AppBodyText(
-            text: Platform.isIOS
-                ? 'Tap a star to rate on the App Store'
-                : 'Tap a star to rate on the Google Play',
-            textAlign: TextAlign.center,
-            size: 14,
-            color: AppColors.colorBlue,
-          ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              for (int i = 1; i <= 5; i++)
-                GestureDetector(
-                  onTap: () {
-                    setState(() {
-                      _rating = i;
-                    });
-                  },
-                  child: Padding(
-                    padding: const EdgeInsets.all(5.0),
-                    child: i <= _rating
-                        ? Assets.icons.icStar2.svg(width: 35)
-                        : Assets.icons.icStar1.svg(width: 35),
-                  ),
-                ),
-            ],
-          ),
-          const SizedBox(height: 16),
-          AppButtons(
-            text: 'Send Feedback',
-            textColor: AppColors.primary,
-            backgroundColor: Colors.transparent,
-            onPressed: () {
-              Navigator.of(context).pop();
-              debugPrint('User rated: $_rating stars');
-              if (_rating > 3) {
-                _launchURL(Config.storeAppUrl);
-                // StoreRedirect.redirect(
-                //   androidAppId: "com.Padoventi.JackpotVPN",
-                // );
-              }
-            },
-          ),
-          const SizedBox(height: 10),
-          GestureDetector(
-            onTap: () {
+    return 
+       Container(
+                 
+        color: Color.fromARGB(255, 0, 0, 0),
+         child: Column(
+          mainAxisSize: MainAxisSize.min,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            AppBar(leading: TextButton(onPressed: (){
               Navigator.pop(context);
-            },
-            child: const Padding(
-              padding: EdgeInsets.symmetric(vertical: 10.0),
-              child: AppLabelText(
-                size: 20,
-                text: 'Not now',
-                color: AppColors.colorBlue,
+            },child: Icon(Icons.clear_rounded)),
+            
+            ),
+            ClipRRect(
+              borderRadius: const BorderRadius.only(
+                topLeft: Radius.circular(20),
+                topRight: Radius.circular(20),
+              ),
+              child: Image.asset(
+                Assets.images.group862.path,
               ),
             ),
-          )
-        ],
-      ),
-    );
+            const SizedBox(
+              height: 10,
+            ),
+            const AppBodyText(
+              text: 'Do you like ${Config.appName} ?',
+              textAlign: TextAlign.center,
+              size: 20,
+              color: AppColors.primary,
+            ),
+            AppBodyText(
+              text: Platform.isIOS
+                  ? 'Tap a star to rate on the App Store'
+                  : 'Tap a star to rate on the Google Play',
+              textAlign: TextAlign.center,
+              size: 14,
+              color: AppColors.primary,
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                for (int i = 1; i <= 5; i++)
+                  GestureDetector(
+                    onTap: () {
+                      setState(() {
+                        _rating = i;
+                      });
+                    },
+                    child: Padding(
+                      padding: const EdgeInsets.all(5.0),
+                      child: i <= _rating
+                          ? Assets.icons.icStar2.svg(width: 35)
+                          : Assets.icons.icStar1.svg(width: 35),
+                    ),
+                  ),
+              ],
+            ),
+            const SizedBox(height: 16),
+            AppButtons(
+              text: 'Send Feedback',
+              textColor: AppColors.primary,
+              backgroundColor: Colors.transparent,
+              onPressed: () {
+                Navigator.of(context).pop();
+                debugPrint('User rated: $_rating stars');
+                if (_rating > 3) {
+                  _launchURL(Config.storeAppUrl);
+                  // StoreRedirect.redirect(
+                  //   androidAppId: "com.Padoventi.JackpotVPN",
+                  // );
+                }
+              },
+            ),
+          SizedBox(height: 30,)
+          ],),
+       )
+        ;
+   
   }
 }
 
