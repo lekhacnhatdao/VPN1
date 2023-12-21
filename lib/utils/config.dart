@@ -15,12 +15,12 @@ final class Config {
       'https://play.google.com/store/apps/details?id=$bundleId';
 
   static final subIds = <String>{
-    'saigonzoolandsstudio_sub_2.1',
-    'saigonzoolandsstudio_sub_2.2',
-    'saigonzoolandsstudio_sub_2.3',
+    // 'saigonzoolandsstudio_sub_2.1',
+    // 'saigonzoolandsstudio_sub_2.2',
+    'remove_ads_yearly',
   };
 
   static final consumableIds = <String>{
-    'saigonzoolandsstudio_1.1',
+    // 'saigonzoolandsstudio_1.1',
   };
 }

@@ -3,14 +3,15 @@ class Strings {
 
   //PremiumPage
   static const String upgradePremium = 'Upgrade Unlimited Edition';
+  static const String Unlimited = 'Unlimited breakthroughs with devices';
   static const String benefitsOfThePremium =
-      'Benefits of the Unlimited Edition package:';
+      'Choose Your Plan:';
   static const String removeAds = '• Remove ads';
   static const String unlockAllPremium =
       '• Unlock all Unlimited Edition servers';
   static const String superFastServer = '• Super fast server, easy access';
   static const String customerSupport = '• 24/7 customer support';
-  static const String getPremiumNow = 'Get Unlimited Edition Now';
+  static const String getPremiumNow = '3 days trial & Subscribe now';
 
   //ShopPage
   static const String shop = 'Shop';

@@ -16,6 +16,8 @@ class $AssetsIconsGen {
 
   /// File path: assets/icons/ic_Vector.svg
   SvgGenImage get icVector => const SvgGenImage('assets/icons/ic_Vector.svg');
+  SvgGenImage get icStar1 => const SvgGenImage('assets/icons/ic_Star1.svg');
+   SvgGenImage get icStar2 => const SvgGenImage('assets/icons/ic_Star2.svg');
 
   /// File path: assets/icons/ic_clock.svg
   SvgGenImage get icClock => const SvgGenImage('assets/icons/ic_clock.svg');
@@ -28,6 +30,7 @@ class $AssetsIconsGen {
 
   /// File path: assets/icons/ic_like.svg
   SvgGenImage get icLike => const SvgGenImage('assets/icons/ic_like.svg');
+  SvgGenImage get icStar => const SvgGenImage('assets/icons/ic_star.svg');
 
   /// File path: assets/icons/ic_note-text.svg
   SvgGenImage get icNoteText =>

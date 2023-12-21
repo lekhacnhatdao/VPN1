@@ -114,7 +114,7 @@ class _MainPageState extends State<MainPage>
                       style: TextStyle(
                           fontSize: 50, color: Colors.white),
                     ),
-                    VpnPage(),
+                    VpnPage(i: 0,),
                     SettingPage(),
                   ]),
                 ),

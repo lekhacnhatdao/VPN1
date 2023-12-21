@@ -6,10 +6,12 @@ import 'package:openvpn/presentations/page/main/privacy_page.dart';
 import 'package:openvpn/presentations/page/main/terms_page.dart';
 import 'package:openvpn/presentations/widget/impl/app_label_text.dart';
 import 'package:openvpn/presentations/widget/impl/backround.dart';
+import 'package:openvpn/presentations/widget/impl/ratting.dart';
 import 'package:openvpn/presentations/widget/impl/settingcm.dart';
 import 'package:openvpn/resources/assets.gen.dart';
 import 'package:openvpn/resources/colors.dart';
 import 'package:openvpn/utils/config.dart';
+import 'package:share_plus/share_plus.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class SettingPage extends StatefulWidget {
@@ -31,46 +33,52 @@ class _SettingPageState extends State<SettingPage> {
       ),
       body: Column(
         children: [
+          //ignore: lines_longer_than_80_chars
+          SettingListTile(title: 'Go VIP', ispre: true ,svgWidget: Assets.icons.icPower.svg(), onPressed: (){
+            // ignore: lines_longer_than_80_chars
+            Navigator.push(context, MaterialPageRoute(builder: (_)=>  const PremiumPage()));
+          },),
           // ignore: lines_longer_than_80_chars
-          // SettingListTile(title: 'Go VIP', ispre: true ,svgWidget: Assets.icons.icPower.svg(), onPressed: (){
-          //   // ignore: lines_longer_than_80_chars
-          //   Navigator.push(context, MaterialPageRoute(builder: (_)=>  const PremiumPage()));
-          // },),
-          // // ignore: lines_longer_than_80_chars
-          // SettingListTile(title: 'Recent'  ,svgWidget: Assets.icons.clock.svg(), onPressed: (){
-          //   // ignore: lines_longer_than_80_chars
-          //   Navigator.push(context, MaterialPageRoute(builder: (_)=>  const PremiumPage()));
-          // },),
-          // // ignore: lines_longer_than_80_chars
-          // SettingListTile(title: 'Share with friends' ,svgWidget: Assets.icons.vector.svg(), onPressed: (){
-          //   // ignore: lines_longer_than_80_chars
-          //   Navigator.push(context, MaterialPageRoute(builder: (_)=>  const PremiumPage()));
-          // },),
-          // // ignore: lines_longer_than_80_chars
-          // SettingListTile(title: 'Feedback' ,svgWidget: Assets.icons.likes.svg(), onPressed: () {
-          //           // _launchURL(Config.storeAppUrl);
-          //           // showDialog(
-          //           //   context: context,
-          //           //   builder: (BuildContext context) {
-          //           //     return const RatingDialog();
-          //           //   },
-          //           // );
-          //         },),
+          SettingListTile(title: 'Recent'  ,svgWidget: Assets.icons.icClock.svg(), onPressed: (){
+            // ignore: lines_longer_than_80_chars
+            Navigator.push(context, MaterialPageRoute(builder: (_)=>  const PremiumPage()));
+          },),
           // ignore: lines_longer_than_80_chars
-          // SettingListTile(title: 'Terms of Use' ,svgWidget: Assets.icons.notes.svg(), onPressed: (){
-          //   // ignore: lines_longer_than_80_chars
-          //   Navigator.push(context, MaterialPageRoute(builder: (_)=>  const TermsPage()));
-          // },),
-          // // ignore: lines_longer_than_80_chars
-          // SettingListTile(title: 'Privacy Policy' ,svgWidget: Assets.icons.security.svg(), onPressed: (){
-          //   // ignore: lines_longer_than_80_chars
-          //   Navigator.push(context, MaterialPageRoute(builder: (_)=>  const PrivacyPage ()));
-          // },),
-          //  // ignore: lines_longer_than_80_chars
-          //  SettingListTile(title: 'Version' , islast: true,svgWidget: Assets.icons.verify.svg(), onPressed: (){
-          //   // ignore: lines_longer_than_80_chars
-          //   Navigator.push(context, MaterialPageRoute(builder: (_)=>  const PremiumPage()));
-          // },),
+          SettingListTile(title: 'Share with friends' ,svgWidget: Assets.icons.icVector.svg(), onPressed: (){
+            // ignore: lines_longer_than_80_chars
+            Share.share('${Config.storeAppUrl}');
+          },),
+          // ignore: lines_longer_than_80_chars
+          SettingListTile(title: 'Feedback' ,svgWidget: Assets.icons.icLike.svg(), onPressed: () {
+             showDialog(
+                      context: context,
+                      builder: (BuildContext context) {
+                        return const RatingDialog();
+                      },
+                    );
+                    // _launchURL(Config.storeAppUrl);
+                    // showDialog(
+                    //   context: context,
+                    //   builder: (BuildContext context) {
+                    //     return const RatingDialog();
+                    //   },
+                    // );
+                  },),
+          //ignore: lines_longer_than_80_chars
+          SettingListTile(title: 'Terms of Use' ,svgWidget: Assets.icons.icNoteText.svg(), onPressed: (){
+            // ignore: lines_longer_than_80_chars
+            Navigator.push(context, MaterialPageRoute(builder: (_)=>  const TermsPage()));
+          },),
+          // ignore: lines_longer_than_80_chars
+          SettingListTile(title: 'Privacy Policy' ,svgWidget: Assets.icons.icSecuritysafe.svg(), onPressed: (){
+            // ignore: lines_longer_than_80_chars
+            Navigator.push(context, MaterialPageRoute(builder: (_)=>  const PrivacyPage ()));
+          },),
+           // ignore: lines_longer_than_80_chars
+           SettingListTile(title: 'Version' , islast: true,svgWidget: Assets.icons.icVerify.svg(), onPressed: (){
+            // ignore: lines_longer_than_80_chars
+            Navigator.push(context, MaterialPageRoute(builder: (_)=>  const PremiumPage()));
+          },),
 
         ],
        
@@ -133,7 +141,7 @@ class SettingListTile extends StatelessWidget {
               child: Text('Try now', style: TextStyle(color: Colors.white),),
             ) : const Icon(
           Icons.arrow_forward_ios_rounded,
-          color: AppColors.colorBlue,
+          color: AppColors.primary,
         )),
       ),
     );
@@ -237,3 +245,4 @@ class SettingListTile extends StatelessWidget {
   //   );
   // }
 //}
+

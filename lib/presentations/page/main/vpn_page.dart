@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_dash/flutter_dash.dart';
@@ -12,7 +13,8 @@ import 'package:openvpn/resources/strings.dart';
 import 'package:openvpn/utils/config.dart';
 
 class VpnPage extends StatelessWidget {
-  const VpnPage({super.key});
+  const VpnPage({super.key, required this.i});
+  final int i ;
 
   @override
   Widget build(BuildContext context) {
@@ -154,29 +156,35 @@ class VpnPage extends StatelessWidget {
                       ),
                     ),
                     SizedBox(height: 150,),
-                    TextButton(
-                        onPressed: () {
-                          Navigator.push(context, MaterialPageRoute(builder: 
-                          (_){
-                            return ServerPage();
-                          }));
-                        },style:TextButton.styleFrom(
-                          backgroundColor: Color(0xff1A1919),
-                            side: BorderSide(width: 1 ,color: Colors.transparent),
-                            shape: BeveledRectangleBorder(
-                              borderRadius :BorderRadius.all(Radius.circular(10))
-                            )
-                          ),
-                        
-                        child: Row(
-                          children: [Image.asset('assets/images/Group 17.png'),
-                          SizedBox(width: 15,),
-                          Text('Fastest Server', style: TextStyle(color: Colors.white),),
-                          Spacer(),
-                          Icon(Icons.arrow_forward_ios_rounded, color: Colors.white,)
-                          ],
+                    Container(
+                      margin: EdgeInsets.symmetric(horizontal: 10),
+                      child: TextButton(
+                          onPressed: () {
+                            Navigator.push(context, MaterialPageRoute(builder: 
+                            (_){
+                              return ServerPage();
+                            }));
+                          },style:TextButton.styleFrom(
+                            backgroundColor: Color(0xff1A1919),
+                              side: BorderSide(width: 1 ,color: Colors.transparent),
+                              shape: BeveledRectangleBorder(
+                                borderRadius :BorderRadius.all(Radius.circular(10))
+                              )
+                            ),
                           
-                        )),
+                          child: Row(
+                            children: [  CachedNetworkImage(
+                        imageUrl: state.currentServer?.flag ?? 'assets/images/Frame.png',
+                        height: 32,
+                      ),
+                            SizedBox(width: 15,),
+                            Text('Fastest Server', style: TextStyle(color: Colors.white),),
+                            Spacer(),
+                            Icon(Icons.arrow_forward_ios_rounded, color: Colors.white,)
+                            ],
+                            
+                          )),
+                    ),
                   ],
                 ),
             

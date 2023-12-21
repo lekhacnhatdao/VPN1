@@ -4,7 +4,7 @@ class ShadowContainer extends StatelessWidget {
   const ShadowContainer({
     super.key,
     this.child,
-    this.color = Colors.white,
+    this.color = Colors.transparent,
     this.height,
     this.margin,
     this.padding = const EdgeInsets.symmetric(

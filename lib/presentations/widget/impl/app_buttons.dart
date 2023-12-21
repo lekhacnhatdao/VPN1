@@ -32,6 +32,7 @@ class AppButtons extends StatelessWidget {
         onPressed: onPressed,
         style: ElevatedButton.styleFrom(
           backgroundColor: backgroundColor,
+          
         ),
         icon: icon!,
         label: AppLabelText(
@@ -52,6 +53,7 @@ class AppButtons extends StatelessWidget {
       );
     }
     return Container(
+    decoration: BoxDecoration(gradient: LinearGradient(colors: AppColors.listgradient), borderRadius: BorderRadius.all(Radius.circular(25))),
       margin: margin,
       child: ConstrainedBox(
         constraints: BoxConstraints.tightFor(

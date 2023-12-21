@@ -6,6 +6,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:openvpn/domain/model/vpn/vpn_server_model.dart';
 import 'package:openvpn/presentations/bloc/app_cubit.dart';
 import 'package:openvpn/presentations/bloc/app_state.dart';
+import 'package:openvpn/presentations/page/main/vpn_page.dart';
 import 'package:openvpn/presentations/route/app_router.gr.dart';
 import 'package:openvpn/presentations/widget/impl/app_body_text.dart';
 import 'package:openvpn/presentations/widget/impl/app_label_text.dart';
@@ -65,7 +66,7 @@ class _AllServerState extends State<AllServer> {
             : () {
                 _handleItemTapped(server, isVip);
           
-                
+              VpnPage(i: server.id,);  
               },
         child: Container(
           height: 60,
