@@ -27,7 +27,7 @@ class RootPage extends StatelessWidget {
         ),
         primaryColor: AppColors.primary,
         primaryColorDark: AppColors.primaryDark,
-        scaffoldBackgroundColor: AppColors.scaffoldBackgroundColor,
+          
         useMaterial3: true,
         fontFamily: FontFamily.campton,
         textTheme: const TextTheme(

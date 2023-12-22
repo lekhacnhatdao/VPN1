@@ -15,30 +15,32 @@ import 'package:openvpn/utils/config.dart';
 class VpnPage extends StatelessWidget {
   const VpnPage({super.key, });
 
-
   @override
   Widget build(BuildContext context) {
+    double screenHeight = MediaQuery.of(context).size.height;
+    double halfScreenHeight = screenHeight / 2.5;
+
     return BlocBuilder<AppCubit, AppState>(
       builder: (context, state) {
         return Stack(
           children: [
            Column(
                   children: [
-                     SizedBox(height: 10,),
+                     const SizedBox(height: 10,),
                     Container(
-                      margin: EdgeInsets.symmetric(horizontal: 10),
-                      height: 377,
-                      decoration: const BoxDecoration(
-                          borderRadius: BorderRadius.all(Radius.circular(10)),
-                          color: Colors.black),
+                      margin: const EdgeInsets.symmetric(horizontal: 10),
+                      height: halfScreenHeight,
+                      decoration:  BoxDecoration(
+                          borderRadius: const BorderRadius.all(Radius.circular(10)),
+                          color: const Color.fromARGB(255, 0, 0, 0).withOpacity(0.25),),
                       child: Column(
                         children: [
-                          SizedBox(height: 10,),
+                          const SizedBox(height: 10,),
                           const Text(
                             'VPN connection',
                             style: TextStyle(color: Colors.white),
                           ),
-                          const SizedBox(height: 30),
+                          const SizedBox(height: 20),
                           Expanded(
                               child: Padding(
                             padding: const EdgeInsets.fromLTRB(80, 0, 0, 0),
@@ -57,19 +59,19 @@ class VpnPage extends StatelessWidget {
                           
                           state.titleStatus == 'Not connected'
                               ? const Text(
-                                  "Your IP exposed to danger!",
+                                  'Your IP exposed to danger!',
                                   style: TextStyle(color: Color(0xffD62828)),
                                 )
                               : state.isConnecting
                                   ? const Text(
-                                      "Your IP exposed to danger!",
+                                      'Your IP exposed to danger!',
                                       style: TextStyle(color: Color(0xffD62828)),
                                     )
                                   : const Text(
                                       'Your IP is hidden, you are now very secure!',
                                       style: TextStyle(color: Color(0xff119822)),
                                     ),
-                                    SizedBox(height: 10,),
+                                    const SizedBox(height: 10,),
                           const Dash(
                               dashThickness: 2,
                               dashLength: 10,
@@ -156,19 +158,19 @@ class VpnPage extends StatelessWidget {
                         ],
                       ),
                     ),
-                    SizedBox(height: 150,),
+                    const SizedBox(height: 150,),
                     Container(
-                      margin: EdgeInsets.symmetric(horizontal: 10),
+                      margin: const EdgeInsets.symmetric(horizontal: 10),
                       child: TextButton(
                           onPressed: () {
                             Navigator.push(context, MaterialPageRoute(builder: 
                             (_){
-                              return ServerPage();
+                              return const ServerPage();
                             }));
                           },style:TextButton.styleFrom(
-                            backgroundColor: Color(0xff1A1919),
-                              side: BorderSide(width: 1 ,color: Colors.transparent),
-                              shape: BeveledRectangleBorder(
+                            backgroundColor: const Color.fromARGB(255, 25, 25, 25),
+                              side: const BorderSide(width: 1 ,color: Colors.transparent),
+                              shape: const BeveledRectangleBorder(
                                 borderRadius :BorderRadius.all(Radius.circular(10))
                               )
                             ),
@@ -178,10 +180,10 @@ class VpnPage extends StatelessWidget {
                         imageUrl: state.currentServer?.flag ?? 'assets/images/Frame.png',
                         height: 32,
                       ),
-                            SizedBox(width: 15,),
-                            Text('Fastest Server', style: TextStyle(color: Colors.white),),
-                            Spacer(),
-                            Icon(Icons.arrow_forward_ios_rounded, color: Colors.white,)
+                            const SizedBox(width: 15,),
+                             Text( state.currentServer?.country ?? 'Fastest Server', style: TextStyle(color: Colors.white),),
+                            const Spacer(),
+                            const Icon(Icons.arrow_forward_ios_rounded, color: Colors.white,)
                             ],
                             
                           )),

@@ -10,6 +10,7 @@ import 'package:openvpn/presentations/page/main/vpn_page.dart';
 import 'package:openvpn/presentations/route/app_router.gr.dart';
 import 'package:openvpn/presentations/widget/impl/app_body_text.dart';
 import 'package:openvpn/presentations/widget/impl/app_label_text.dart';
+import 'package:openvpn/resources/assets.gen.dart';
 import 'package:openvpn/resources/colors.dart';
 import 'package:openvpn/resources/strings.dart';
 
@@ -40,7 +41,8 @@ class _AllServerState extends State<AllServer> {
                     itemBuilder: (context, index) {
                       final server = state.servers[index];
                       final isSelected = state.currentServer?.id == server.id;
-                      return _buildItem(server, isSelected, state.isVip);
+                      final free = state.servers[index].vip;
+                      return _buildItem(server, isSelected, state.isVip, free);
                     },
                     itemCount: state.servers.length,
                     separatorBuilder: (context, index) {
@@ -52,14 +54,14 @@ class _AllServerState extends State<AllServer> {
             );
     }
     );}
-     Widget _buildItem(VpnServerModel server, bool isSelected, bool isVip) {
+     Widget _buildItem(VpnServerModel server, bool isSelected, bool isVip, bool free) {
    
 
     return Container(
       padding: EdgeInsets.symmetric(vertical: 5),
-      margin: EdgeInsets.symmetric(vertical: 10, horizontal: 10),
+      margin: EdgeInsets.symmetric(vertical: 2, horizontal: 10),
       decoration: BoxDecoration(
-          color: Colors.black, borderRadius: BorderRadius.circular(20)),
+          color: Color(0xff1A1919).withOpacity(0.25), borderRadius: BorderRadius.circular(20)),
       child: InkWell(
         onTap: isSelected
             ? null
@@ -110,7 +112,9 @@ class _AllServerState extends State<AllServer> {
                     );
                   },
                 ),
-              const SizedBox(width: 16),
+              const  Spacer(),
+              free ? Assets.images.crown.image():   Text('') ,
+               const SizedBox(width: 10,),
               isSelected
                   ? const Icon(
                       Icons.check_circle,

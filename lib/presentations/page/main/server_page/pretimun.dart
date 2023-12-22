@@ -8,6 +8,7 @@ import 'package:openvpn/presentations/bloc/app_cubit.dart';
 import 'package:openvpn/presentations/bloc/app_state.dart';
 import 'package:openvpn/presentations/route/app_router.gr.dart';
 import 'package:openvpn/presentations/widget/impl/app_label_text.dart';
+import 'package:openvpn/resources/assets.gen.dart';
 
 class PretimunServer extends StatefulWidget {
   const PretimunServer({super.key});
@@ -43,7 +44,7 @@ class _PretimunServerState extends State<PretimunServer> {
     );
   }
 
-  Widget buildPretimun(VpnServerModel server, bool isSelected, bool isVip) {
+  Widget buildPretimun(VpnServerModel server, bool isSelected, bool isVip ) {
     bool flag = false;
 
 
@@ -98,7 +99,9 @@ class _PretimunServerState extends State<PretimunServer> {
                     );
                   },
                 ),
-              const SizedBox(width: 16),
+              const Spacer(),
+                Assets.images.crown.image(),
+                const SizedBox(width: 10,),
               isSelected
                   ? const Icon(
                       Icons.check_circle,

@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:animated_segmented_tab_control/animated_segmented_tab_control.dart';
 import 'package:auto_route/annotations.dart';
 import 'package:cached_network_image/cached_network_image.dart';
@@ -5,6 +7,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:openvpn/presentations/bloc/app_cubit.dart';
 import 'package:openvpn/presentations/bloc/app_state.dart';
+import 'package:openvpn/presentations/page/billing/premium_page.dart';
 import 'package:openvpn/presentations/page/main/history_page.dart';
 import 'package:openvpn/presentations/page/main/home_left_menu_page.dart';
 import 'package:openvpn/presentations/page/main/server_page/server_page.dart';
@@ -30,13 +33,26 @@ class MainPage extends StatefulWidget {
 class _MainPageState extends State<MainPage>
     with SingleTickerProviderStateMixin {
   late TabController controller;
+    late Timer _timer;
+  bool _dialogShown = false;
   @override
   void initState() {
     super.initState();
     WidgetsBinding.instance.addPostFrameCallback((_) {
       context.read<AppCubit>().startBilling();
     });
-
+Future<void> _maintenancePopup() async {
+    await Future.delayed(const Duration(seconds: 7));
+    if (context.read<AppCubit>().state.servers.isEmpty && !_dialogShown) {
+      _showMaintenanceDialog();
+    }
+    _timer = Timer.periodic(const Duration(seconds: 20), (Timer timer) {
+      context.read<AppCubit>().fetchServerList();
+      if (context.read<AppCubit>().state.servers.isEmpty && !_dialogShown) {
+        _showMaintenanceDialog();
+      }
+    });
+  }
     controller = TabController(length: 3, vsync: this);
   }
 
@@ -44,11 +60,10 @@ class _MainPageState extends State<MainPage>
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
     return Container(
-      color:   AppColors.orange,
       child: SafeArea(
-          bottom: false,
-          child: Scaffold(
-            backgroundColor: Colors.transparent,
+        bottom: false,
+        child: Scaffold(
+            backgroundColor: Colors.black.withOpacity(0.05),
             appBar: AppBar(
               backgroundColor: Colors.black,
               leading: const Row(
@@ -74,14 +89,22 @@ class _MainPageState extends State<MainPage>
                       style: OutlinedButton.styleFrom(
                         backgroundColor: AppColors.purple,
                       ),
-                      child: Row(
-                        children: [
-                          Image.asset('assets/images/crown.png'),
-                          const Text(
-                            'Go VIP',
-                            style: TextStyle(color: Colors.white),
-                          )
-                        ],
+                      child: InkWell(
+                        onTap: () {
+                          Navigator.push(context,
+                              MaterialPageRoute(builder: (_) {
+                            return PremiumPage();
+                          }));
+                        },
+                        child: Row(
+                          children: [
+                            Image.asset('assets/images/crown.png'),
+                            const Text(
+                              'Go VIP',
+                              style: TextStyle(color: Colors.white),
+                            )
+                          ],
+                        ),
                       )),
                 )
                 // BlocBuilder<AppCubit, AppState>(
@@ -106,31 +129,51 @@ class _MainPageState extends State<MainPage>
                 // )
               ],
             ),
-            body: Custombackground(widget: Column(
+            body: Custombackground(
+              widget: Column(
                 children: [
-                 
                   Expanded(
-                    child:
-                        TabBarView(controller: controller, children: const  [
-                      
-                      HistoryPage(),
+                    child: TabBarView(controller: controller, children: const [
                       VpnPage(),
+                      HistoryPage(),
                       SettingPage(),
                     ]),
                   ),
-                  CustomBar(
-                    lenght: controller.length,
-                    icon: [
-                      Appicon.heart,
+                  CustomBottomBar(
+                    controller: controller,
+                    listIcon: [
                       Appicon.flashcircle,
+                      Icons.history_outlined,
                       Icons.settings,
                     ],
-                    onSelect: (index ) => controller.animateTo(index),
+                    onSelect: (index) => controller.animateTo(index),
                   )
                 ],
-              ),) 
-            ),
-          ),
+              ),
+            )),
+      ),
+    );
+  } void _showMaintenanceDialog() {
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        _dialogShown = true;
+        return AlertDialog(
+          title: const Text('Oops! Sorry (-_-)'),
+          content: const Text( textAlign: TextAlign.center,
+              'We are maintaining the system to upgrade the server. Please try again later'),
+          actions: <Widget>[
+            AppButtons(
+                textColor: AppColors.primary,
+                text: "Close",
+                backgroundColor: AppColors.colorRed,
+                onPressed: () {
+                  Navigator.pop(context);
+                  _dialogShown = false;
+                }),
+          ],
+        );
+      },
     );
   }
 }

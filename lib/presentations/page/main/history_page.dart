@@ -9,6 +9,8 @@ import 'package:openvpn/domain/model/history/history_model.dart';
 import 'package:openvpn/local/app_db.dart';
 import 'package:openvpn/presentations/bloc/app_cubit.dart';
 import 'package:openvpn/presentations/bloc/app_state.dart';
+import 'package:openvpn/presentations/page/main/vpn_page.dart';
+import 'package:openvpn/presentations/widget/impl/Gradient.dart';
 import 'package:openvpn/presentations/widget/impl/app_body_text.dart';
 import 'package:openvpn/presentations/widget/impl/app_icon_buttons.dart';
 import 'package:openvpn/presentations/widget/impl/app_label_text.dart';
@@ -41,21 +43,19 @@ class _HistoryPageState extends State<HistoryPage> {
   @override
   Widget build(BuildContext context) {
     bool isHistoryNotEmpty = false;
-    return Custombackground(
-   
-      widget: Scaffold(
+    return  Scaffold(
         backgroundColor: Colors.transparent,
         appBar: AppBar(
           centerTitle: true,
           title: const AppTitleText(
             text: 'History',
-            color: Colors.black,
+            color: Colors.white,
           ),
           actions: [
             AppIconButtons(
               icon: isHistoryNotEmpty == true
                   ? Assets.icons.icCrown.svg()
-                  : Icon(Icons.delete),
+                  : Cstmgradient(child:Icon(Icons.delete) ,color: AppColors.listgradient, begin: Alignment.topCenter, end: Alignment.bottomCenter,  ) ,
               onPressed: () {
                 if (isHistoryNotEmpty == true) {
                   _deleteAllConfirmationDialog();
@@ -92,7 +92,7 @@ class _HistoryPageState extends State<HistoryPage> {
                         SizedBox(
                             width: 80,
                             height: 80,
-                            child: Assets.icons.icNoteText.svg()),
+                            child: Cstmgradient(color: AppColors.listgradient, child: Icon(Icons.hide_source, size: 50,),)),
                         const SizedBox(height: 16),
                       ],
                     ),
@@ -116,7 +116,7 @@ class _HistoryPageState extends State<HistoryPage> {
             },
           ),
         ),
-      ),
+      
     );
   }
 
@@ -125,36 +125,37 @@ class _HistoryPageState extends State<HistoryPage> {
       context: context,
       builder: (context) {
         return CupertinoAlertDialog(
-          title: const AppLabelText(
-            text: "Clear All history",
+          
+          title: const Text(
+             'Clear All history',
           ),
-          content: const AppLabelText(
-            text:
-                'Are you sure you want to clear All the server history information?',
+          content: const Text(
+           
+                'Do you want to delete all?',
           ),
           actions: [
-            CupertinoDialogAction(
+            TextButton(
               onPressed: () {
                 Navigator.of(context).pop();
               },
-              child: const AppLabelText(
-                text: 'Cancel',
-              ),
+              child: const Text('Cancel', style: TextStyle(fontSize: 14, color: Colors.black),)
             ),
-            CupertinoDialogAction(
-              onPressed: ()  {
-                 getIt<AppDatabase>().deleteAllHistories();
-                _refreshListView();
-                if (!context.mounted) return;
-                Navigator.of(context).popUntil((route) => route.isFirst);
-                debugPrint('all History deleted');
-                EasyLoading.showToast('All History connection is deleted');
-               
-                Future.delayed(Duration(seconds: 2), );
+            TextButton(
+              onPressed: () {
+                getIt<AppDatabase>().deleteAllHistories((){
+                    _refreshListView();
+                  if (!context.mounted) return;
+                  Navigator.of(context).popUntil((route) => route.isFirst);
+                  EasyLoading.showToast('All History connection is deleted');
+                  // Future.delayed(Duration(seconds: 2), () {
+                  //   setState(() {
+                  //     //return _refreshListView();
+                  //   });
+                  // });
+                  context.read<AppCubit>().fetchHistoryList();
+                });
               },
-              child: const AppLabelText(
-                text: 'Delete',
-              ),
+              child: const Text('Delete' , style: TextStyle( fontSize: 14, color: Colors.black),)
             ),
           ],
         );
@@ -201,7 +202,7 @@ class _HistoryPageState extends State<HistoryPage> {
           AppBodyText(
             text: history.createAt.toStringFormatted(),
             size: 12,
-            color: AppColors.textPrimary,
+            color: AppColors.primary,
           )
         ],
       ),

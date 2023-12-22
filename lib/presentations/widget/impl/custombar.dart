@@ -1,34 +1,35 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
-class CustomBar extends StatefulWidget {
-  const CustomBar({super.key, required this.lenght, this.onSelect,required this.icon, this.color});
-  final int lenght;
-  final Function(int) ? onSelect;
-  final List<IconData>  icon;
-  final Color ? color;
-  @override
-  State<CustomBar> createState() => _CustomBarState();
-}
+// class CustomBar extends StatefulWidget {
+//   const CustomBar({super.key, required this.lenght, this.onSelect,required this.icon, this.color});
+//   final int lenght;
+//   final Function(int) ? onSelect;
+//   final List<IconData>  icon;
+//   final Color ? color;
+//   @override
+//   State<CustomBar> createState() => _CustomBarState();
+// }
 
-class _CustomBarState extends State<CustomBar> {
-  @override
-  Widget build(BuildContext context) {
-    return CustomBottomBar(lengthItem: widget.lenght, onSelect:widget.onSelect,listIcon: widget.icon ,backgroundColor: widget.color);
-  }
-  
-}
+// class _CustomBarState extends State<CustomBar> {
+//   @override
+//   Widget build(BuildContext context) {
+//     return CustomBottomBar(lengthItem: widget.lenght, onSelect:widget.onSelect,listIcon: widget.icon ,backgroundColor: widget.color);
+//   }
+
+// }
 class CustomBottomBar extends StatefulWidget {
   const CustomBottomBar({
     super.key,
-    required this.lengthItem,
     this.onSelect,
     this.colorUnSelect = Colors.grey,
     required this.listIcon,
     this.backgroundColor,
     this.height = 70,
+    required this.controller,
   });
-  final int lengthItem;
+
+  final TabController controller;
 
   final void Function(int index)? onSelect;
   final Color colorUnSelect;
@@ -43,6 +44,16 @@ class CustomBottomBar extends StatefulWidget {
 class _CustomBottomBarState extends State<CustomBottomBar> {
   int valSelect = 1;
   @override
+  void initState() {
+    super.initState();
+    widget.controller.addListener(() {
+      setState(() {
+        widget.controller.index;
+      });
+    });
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Container(
       color: widget.backgroundColor ?? const Color(0xff1A1919),
@@ -51,15 +62,15 @@ class _CustomBottomBarState extends State<CustomBottomBar> {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: List.generate(
-            widget.lengthItem,
+            widget.controller.length,
             (index) => GestureDetector(
                   child: buildItem(
-                      isSelected: index == valSelect,
+                      isSelected: index == widget.controller.index,
                       iconData: widget.listIcon[index]),
                   onTap: () {
                     setState(() {
-                      valSelect = index;
-                      widget.onSelect?.call(valSelect);
+                      widget.controller.index = index;
+                      widget.onSelect?.call(widget.controller.index);
                     });
                   },
                 )),
@@ -84,8 +95,10 @@ class _CustomBottomBarState extends State<CustomBottomBar> {
         child: isSelected
             ? ShaderMask(
                 shaderCallback: (Rect bounds) => const LinearGradient(
-                  colors: [Color(0xffBF00B5), Color(0xffFFA555)],begin : Alignment.topCenter, end: Alignment.bottomCenter
-                ).createShader(bounds),
+                        colors: [Color(0xffBF00B5), Color(0xffFFA555)],
+                        begin: Alignment.topCenter,
+                        end: Alignment.bottomCenter)
+                    .createShader(bounds),
                 child: Icon(
                   iconData,
                   size: 24,

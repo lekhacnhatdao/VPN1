@@ -14,9 +14,9 @@ class _CustombackgroundState extends State<Custombackground> {
     return Container(
             width: double.infinity,
             height: double.infinity,
-            decoration: const BoxDecoration(
-                color: Color.fromARGB(195, 0, 0, 0),
-                image: DecorationImage(
+            decoration:  BoxDecoration(
+                color: Colors.black.withOpacity(0.85),
+                image: const DecorationImage(
                   image: AssetImage('assets/images/Layer 1.png'),
                   fit: BoxFit.fill,
                 )),

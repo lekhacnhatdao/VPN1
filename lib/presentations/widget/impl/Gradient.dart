@@ -1,17 +1,17 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
-class Cstomgradient extends StatefulWidget {
-  const Cstomgradient({super.key, required this.color, this.child, this.begin, this.end});
+class Cstmgradient extends StatefulWidget {
+  const Cstmgradient({super.key, required this.color, this.child, this.begin, this.end});
   final List<Color> color;
   final Widget ? child;
   final Alignment ? begin ;
   final Alignment ? end ;
   @override
-  State<Cstomgradient> createState() => _CstomgradientState();
+  State<Cstmgradient> createState() => _CstmgradientState();
 }
 
-class _CstomgradientState extends State<Cstomgradient> {
+class _CstmgradientState extends State<Cstmgradient> {
   @override
   Widget build(BuildContext context) {
     return ShaderMask(

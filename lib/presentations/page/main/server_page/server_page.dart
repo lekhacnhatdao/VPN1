@@ -63,7 +63,7 @@ class _ServerPageState extends State<ServerPage> {
                               text: 'All server',
                             ),
                             Tab(
-                              text: 'Prenium',
+                              text: 'Premium server',
                             )
                           ]),
                     ),

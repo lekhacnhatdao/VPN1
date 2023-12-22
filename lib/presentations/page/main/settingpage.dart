@@ -2,6 +2,7 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:openvpn/presentations/page/billing/premium_page.dart';
+import 'package:openvpn/presentations/page/main/history_page.dart';
 import 'package:openvpn/presentations/page/main/privacy_page.dart';
 import 'package:openvpn/presentations/page/main/terms_page.dart';
 import 'package:openvpn/presentations/widget/impl/app_label_text.dart';
@@ -24,7 +25,7 @@ class SettingPage extends StatefulWidget {
 class _SettingPageState extends State<SettingPage> {
   @override
   Widget build(BuildContext context) {
-    return Custombackground(widget: Scaffold(
+    return  Scaffold(
       backgroundColor: Colors.transparent,
       appBar: AppBar(
         title: const Text('Setting' , style: TextStyle(color: Colors.white, fontSize: 18),),
@@ -39,10 +40,10 @@ class _SettingPageState extends State<SettingPage> {
             Navigator.push(context, MaterialPageRoute(builder: (_)=>  const PremiumPage()));
           },),
           // ignore: lines_longer_than_80_chars
-          SettingListTile(title: 'Recent'  ,svgWidget: Assets.icons.icClock.svg(), onPressed: (){
-            // ignore: lines_longer_than_80_chars
-            Navigator.push(context, MaterialPageRoute(builder: (_)=>  const PremiumPage()));
-          },),
+          // SettingListTile(title: 'Recent'  ,svgWidget: Assets.icons.icClock.svg(), onPressed: (){
+          //   // ignore: lines_longer_than_80_chars
+          //   Navigator.push(context, MaterialPageRoute(builder: (_)=>  const HistoryPage()));
+          // },),
           // ignore: lines_longer_than_80_chars
           SettingListTile(title: 'Share with friends' ,svgWidget: Assets.icons.icVector.svg(), onPressed: (){
             // ignore: lines_longer_than_80_chars
@@ -78,13 +79,13 @@ class _SettingPageState extends State<SettingPage> {
            // ignore: lines_longer_than_80_chars
            SettingListTile(title: 'Version' , islast: true,svgWidget: Assets.icons.icVerify.svg(), onPressed: (){
             // ignore: lines_longer_than_80_chars
-            Navigator.push(context, MaterialPageRoute(builder: (_)=>  const PremiumPage()));
+          
           },),
 
         ],
        
       ),
-    )); 
+    ); 
   }
   
 }
@@ -132,10 +133,10 @@ class SettingListTile extends StatelessWidget {
         ),
         trailing:  InkWell(
             // ignore: lines_longer_than_80_chars
-            child: islast ?? false  ? const Text(Config.version) : ispre?? false ? const DecoratedBox(
-
+            child: islast ?? false  ? const Text(Config.version) : ispre?? false ?  Container(
+              padding: EdgeInsets.symmetric(horizontal: 5),
               // ignore: lines_longer_than_80_chars
-              decoration: BoxDecoration(borderRadius: BorderRadius.all(Radius.circular(10)),
+              decoration: const BoxDecoration(borderRadius: BorderRadius.all(Radius.circular(10)),
               color: Color(0xffFB5607) ,
               
               ),

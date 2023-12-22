@@ -32,7 +32,7 @@ class LoadingButtons extends StatelessWidget {
       padding: EdgeInsets.all(15),
       decoration: BoxDecoration(
         shape: BoxShape.circle,
-        color: Color.fromARGB(255, 59, 59, 59),
+        color: Color.fromARGB(255, 35, 35, 35),
       ),
       child: GestureDetector(
         onTap: onPressed,
@@ -69,9 +69,9 @@ class LoadingButtons extends StatelessWidget {
               top: 20,
               bottom: 20,
               child: Container(
-                decoration: const BoxDecoration(
+                decoration:  BoxDecoration(
                   shape: BoxShape.circle,
-                  color: Color.fromARGB(255, 59, 59, 59),
+                  color: Color.fromARGB(255, 44, 44, 44),
                 ),
                 padding: const EdgeInsets.all(10),
                 child: ShaderMask(
