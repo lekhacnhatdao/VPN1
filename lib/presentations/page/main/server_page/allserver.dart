@@ -58,10 +58,10 @@ class _AllServerState extends State<AllServer> {
    
 
     return Container(
-      padding: EdgeInsets.symmetric(vertical: 5),
-      margin: EdgeInsets.symmetric(vertical: 2, horizontal: 10),
+      padding: const EdgeInsets.symmetric(vertical: 5),
+      margin: const EdgeInsets.symmetric(vertical: 2, horizontal: 10),
       decoration: BoxDecoration(
-          color: Color(0xff1A1919).withOpacity(0.25), borderRadius: BorderRadius.circular(20)),
+          color: Color(0xFF1A1919).withOpacity(0.25), borderRadius: BorderRadius.circular(20)),
       child: InkWell(
         onTap: isSelected
             ? null
@@ -82,13 +82,13 @@ class _AllServerState extends State<AllServer> {
               Container(
                 height: 50,
                 width: 50,
-                decoration: BoxDecoration(
+                decoration: const BoxDecoration(
                   shape: BoxShape.circle,
                 ),
                 child: Image.network(
                    server.flag),
               ),
-              SizedBox(
+              const SizedBox(
                 width: 10,
               ),
               Text(
@@ -99,7 +99,7 @@ class _AllServerState extends State<AllServer> {
                         server.country.toString(),
                 maxLines: 1,
                 overflow: TextOverflow.ellipsis,
-                style: TextStyle(color: Colors.white, fontSize: 14),
+                style: const TextStyle(color: Colors.white, fontSize: 14),
               ),
               const Spacer(),
               if (isSelected)
@@ -113,9 +113,9 @@ class _AllServerState extends State<AllServer> {
                   },
                 ),
               const  Spacer(),
-              free ? Assets.images.crown.image():   Text('') ,
-               const SizedBox(width: 10,),
-              isSelected
+              free ? Assets.images.crown.image():  const SizedBox() ,
+              server.vip && !isVip ? const SizedBox() : const SizedBox(width: 10,),
+             server.vip && !isVip ? const SizedBox() : isSelected
                   ? const Icon(
                       Icons.check_circle,
                       color: Color.fromARGB(255, 25, 110, 238),

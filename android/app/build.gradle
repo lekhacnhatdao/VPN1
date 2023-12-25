@@ -44,7 +44,7 @@ android {
     }
 
     defaultConfig {
-        applicationId "com.saigonzoolandsstudio.WordQuizAnimal"
+        applicationId "com.Chromadrift.AmazingVPN"
         minSdkVersion 19
         targetSdkVersion flutter.targetSdkVersion
         versionCode 22

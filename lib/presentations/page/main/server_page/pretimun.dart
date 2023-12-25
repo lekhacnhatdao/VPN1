@@ -49,10 +49,10 @@ class _PretimunServerState extends State<PretimunServer> {
 
 
     return Container(
-      padding: EdgeInsets.symmetric(vertical: 5),
-      margin: EdgeInsets.symmetric(vertical: 10, horizontal: 10),
+      padding: const EdgeInsets.symmetric(vertical: 5),
+      margin: const EdgeInsets.symmetric(vertical: 10, horizontal: 10),
       decoration: BoxDecoration(
-          color: Colors.black, borderRadius: BorderRadius.circular(20)),
+          color: const Color(0xff1A1919).withOpacity(0.25), borderRadius: BorderRadius.circular(20)),
       child: InkWell(
         onTap: isSelected
             ? null
@@ -70,13 +70,13 @@ class _PretimunServerState extends State<PretimunServer> {
               Container(
                 height: 50,
                 width: 50,
-                decoration: BoxDecoration(
+                decoration: const BoxDecoration(
                   shape: BoxShape.circle,
                 ),
                 child: Image.network(
                       server.flag),
               ),
-              SizedBox(
+              const SizedBox(
                 width: 10,
               ),
               Text(
@@ -87,7 +87,7 @@ class _PretimunServerState extends State<PretimunServer> {
                         server.country.toString(),
                 maxLines: 1,
                 overflow: TextOverflow.ellipsis,
-                style: TextStyle(color: Colors.white, fontSize: 14),
+                style: const TextStyle(color: Colors.white, fontSize: 14),
               ),
               const Spacer(),
               if (isSelected)
@@ -102,7 +102,7 @@ class _PretimunServerState extends State<PretimunServer> {
               const Spacer(),
                 Assets.images.crown.image(),
                 const SizedBox(width: 10,),
-              isSelected
+               server.vip && !isVip ? const SizedBox() : isSelected
                   ? const Icon(
                       Icons.check_circle,
                       color: Color.fromARGB(255, 25, 110, 238),

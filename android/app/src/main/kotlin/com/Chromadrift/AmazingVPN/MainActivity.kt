@@ -1,4 +1,4 @@
-package com.lxquyen.openvpn
+package com.Chromadrift.AmazingVPN
 
 import android.app.Activity.RESULT_OK
 import android.content.Intent

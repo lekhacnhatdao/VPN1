@@ -32,7 +32,7 @@ class VpnPage extends StatelessWidget {
                       height: halfScreenHeight,
                       decoration:  BoxDecoration(
                           borderRadius: const BorderRadius.all(Radius.circular(10)),
-                          color: const Color.fromARGB(255, 0, 0, 0).withOpacity(0.25),),
+                          color: Color.fromARGB(255, 0, 0, 0).withOpacity(0.25),),
                       child: Column(
                         children: [
                           const SizedBox(height: 10,),
