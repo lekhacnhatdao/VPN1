@@ -70,7 +70,7 @@ class _AllServerState extends State<AllServer> {
           
               
               },
-        child: Container(
+        child:server.country == 'Germany'?  const SizedBox() :Container(
           height: 60,
           decoration: const BoxDecoration(
             borderRadius: BorderRadius.all(Radius.circular(30)),

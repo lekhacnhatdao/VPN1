@@ -4,7 +4,7 @@ final class Config {
   static const appName = 'Amazing VPN';
   static const version = '2.5';
   static const company = 'saigonzoolandsstudio';
-  static const bundleId = 'com.saigonzoolandsstudio.WordQuizAnimal';
+  static const bundleId = 'com.Chromadrift.AmazingVPN';
 
   static const vpnUrl = 'https://api.shieldme.top/servers/';
 

@@ -76,15 +76,16 @@ class LoadingButtons extends StatelessWidget {
                 padding: const EdgeInsets.all(10),
                 child: ShaderMask(
                   blendMode: BlendMode.srcIn,
-                  shaderCallback: (Rect bounds) => RadialGradient(
-                    center: Alignment.bottomCenter,
-                    stops: [2, 3],
+                  shaderCallback: (Rect bounds) => LinearGradient(
+                    
+                    begin: Alignment.topCenter,
+                    end: Alignment.bottomCenter,
                     colors: isLoading
                         ? [Color(0xffFFFFFF), Color(0xffFFFFFF)]
                         : changeUI
-                            ? [
+                            ? [Color(0xffBF00B5),
                                 Color(0xffFFA555),
-                                Color(0xffBF00B5),
+                                
                               ]
                             : [Color(0xff0575E6), Color(0xff00F260)],
                   ).createShader(bounds),
